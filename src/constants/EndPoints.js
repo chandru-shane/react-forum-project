@@ -12,6 +12,8 @@ const EndPoints = {
     login: getEndPoints('api/accounts/login/'),
     isAuth: getEndPoints('api/profiles/isauth/'),
 
+    home: getEndPoints('api/forum/home/'),
+
     profile:getEndPoints('api/userprofile/username/'),
     
     follow:getEndPoints('api/userprofile/follow/'),

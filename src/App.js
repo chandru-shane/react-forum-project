@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute';
 import NavBar from './components/NavBar';
 import Group from './screens/Group/Group';
 import Logout from './screens/Auth/Logout'
+import NotFoundPage from './screens/NotFoundPage';
 
 
 const App = () => {
@@ -33,16 +34,10 @@ const App = () => {
     <ChakraProvider>
       <Router>
         <React.Fragment>
-          <div>
+ 
 
-            {
-              authHandler() ? <div>
-                <NavBar />
-              </div> : <ul></ul>
-            }
 
             <Routes>
-
 
               <Route path='/login' element={<Auth />} />
 
@@ -55,17 +50,17 @@ const App = () => {
               </Route>
 
               <Route exact path='/' element={<PrivateRoute isAuthenticated={authHandler} />}>
-                <Route exact path='/group' element={<Group />} />
+                <Route exact path='/groups' element={<Group />} />
               </Route>
 
               <Route exact path='/' element={<PrivateRoute isAuthenticated={authHandler} />}>
                 <Route exact path='/logout' element={<Logout />} />
               </Route>
 
+              <Route path='*' element={<NotFoundPage/>}/>
 
             </Routes >
 
-          </div>
         </React.Fragment>
       </Router>
     </ChakraProvider>
